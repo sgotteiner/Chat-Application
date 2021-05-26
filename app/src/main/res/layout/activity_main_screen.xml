@@ -1,19 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackground"
     tools:context=".activities.MainScreenActivity">
 
-    <TextView
-        android:id="@+id/mainViewID"
-        android:text="Hello World"
-        android:textStyle="bold"
-        android:textSize="25dp"
-        android:layout_margin="130dp"
-        android:layout_gravity="center"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"/>
+    <RelativeLayout
+        android:id="@+id/titleMainScreen"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorBackground"
+        android:padding="5dp">
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/txt1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="My Chats"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/txt1">
+
+
+            <com.example.javaclient.utils.CircleImageView
+                android:id="@+id/imgProfileBtn"
+                android:layout_width="39dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="238dp"
+                android:layout_marginBottom="0dp"
+                android:onClick="onProfileImgChange"
+                android:src="@drawable/profile" />
+
+            <ImageView
+                android:id="@+id/imgMainScreenMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/close_menu" />
+
+            <ImageView
+                android:id="@+id/imgMainScreenSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@+id/imgMainScreenMenu"
+                android:src="@drawable/search" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerChats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleMainScreen"/>
+</RelativeLayout>
